@@ -1,5 +1,5 @@
 name: display_ads
-description: A new Flutter package project.
+description: The Display Ads package is a wrapper for the Google Mobile Ads Flutter plugin, which helps developers display Google Mobile Ads in the easiest way.
 version: 0.0.1
 homepage: 
 
