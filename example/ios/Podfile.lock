@@ -1,11 +1,11 @@
 PODS:
   - Flutter (1.0.0)
-  - Google-Mobile-Ads-SDK (10.9.0):
+  - Google-Mobile-Ads-SDK (10.11.0):
     - GoogleAppMeasurement (< 11.0, >= 7.0)
     - GoogleUserMessagingPlatform (>= 1.1)
   - google_mobile_ads (1.0.0):
     - Flutter
-    - Google-Mobile-Ads-SDK (~> 10.9.0)
+    - Google-Mobile-Ads-SDK (~> 10.11.0)
     - webview_flutter_wkwebview
   - GoogleAppMeasurement (10.19.0):
     - GoogleAppMeasurement/AdIdSupport (= 10.19.0)
@@ -78,8 +78,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
-  Google-Mobile-Ads-SDK: e81e8b009a182dc8dd14951782efdbb30a5e4510
-  google_mobile_ads: 035df0d095e1a196b52e3c91534d0718d3dacf98
+  Google-Mobile-Ads-SDK: 58b4fda3f9758fc1ed210aa5cf7777b5eb55d47e
+  google_mobile_ads: 511febb4768edc860ee455a9e201ff52de385908
   GoogleAppMeasurement: 68afe759316673c6554dac35a0c7ae8f5d6cb4ed
   GoogleUserMessagingPlatform: dce302b8f1b84d6e945812ee7a15c3f65a102cbf
   GoogleUtilities: 0759d1a57ebb953965c2dfe0ba4c82e95ccc2e34
