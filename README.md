@@ -1,3 +1,6 @@
+![Pub Points](https://img.shields.io/pub/points/display_ads) ![Static Badge](https://img.shields.io/badge/Dart_Analyze-Pass-blue) ![Static Badge](https://img.shields.io/badge/License-MIT-purple?link=https%3A%2F%2Fgithub.com%2Fcodebox168%2Fdisplay_ads%2Fblob%2Fmain%2FLICENSE)
+
+
 # Easy way to display google ads
 
 The Display Ads package is a wrapper for the Google Mobile Ads Flutter plugin, which helps developers display Google Mobile Ads in the easiest way.
@@ -48,4 +51,4 @@ DisplayAds.instance.loadInterstitialAds()
 
 ## Additional information
 
-This package uses [google_mobile_ads](https://pub.dev/packages/google_mobile_ads), [flutter_riverpod](https://pub.dev/packages/flutter_riverpod), and [equatable](https://pub.dev/packages/equatable) as dependencies.
+This package use [google_mobile_ads](https://pub.dev/packages/google_mobile_ads) as dependency.

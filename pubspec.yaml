@@ -13,8 +13,6 @@ dependencies:
   flutter:
     sdk: flutter
   google_mobile_ads: ^4.0.0
-  flutter_riverpod: ^2.4.10
-  equatable: ^2.0.5
 
 dev_dependencies:
   flutter_test:
