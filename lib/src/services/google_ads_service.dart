@@ -16,14 +16,14 @@ class GoogleAdsService {
   }) {
     MobileAds.instance.initialize();
 
-    this._requestGoogleAds = AdRequest(
+    _requestGoogleAds = AdRequest(
       keywords: requestGoogleAdsKeywords,
       nonPersonalizedAds: false,
     );
-    this._interstitialAdUnitId = Platform.isAndroid
+    _interstitialAdUnitId = Platform.isAndroid
         ? interstitialAdUnitIdAndroid
         : interstitialAdUnitIdIOS;
-    this._bannerAdUnitIdAdUnitId =
+    _bannerAdUnitIdAdUnitId =
         Platform.isAndroid ? bannerAdUnitIdAndroid : bannerAdUnitIdIOS;
     _loadInterstitialAd();
     _loadBannerAd();
