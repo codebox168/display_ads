@@ -17,3 +17,7 @@
 ## 1.0.0
 
 * TODO: Release stable version 1.0.0
+
+## 1.0.1
+
+* TODO: modified readme
