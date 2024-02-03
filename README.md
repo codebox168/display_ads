@@ -23,7 +23,7 @@ void main() async {
     DisplayAds.instance.initialize(
         isShowAds: true,
         interstitialAdUnitIdIOS: "Put your interstitial AdUnitId for iOS here",
-        bannerAdUnitIdAndroid:"Put your interstitial AdUnitId for Android here",
+        interstitialAdUnitIdAndroid:"Put your interstitial AdUnitId for Android here",
         bannerAdUnitIdIOS: "Put your banner AdUnitId for iOS here",
         bannerAdUnitIdAndroid:"Put your banner AdUnitId for Android here",
     );
