@@ -69,16 +69,18 @@ class DisplayAds {
   ///
   /// Call this method when ever you want to display Interstitial Ads to this user;\
   ///
-  /// `beforeStart` is VoidCallback. This function well execute before display Interstitial Ads
+  /// `beforeStart` is VoidCallback. This function well execute before display Interstitial Ads\
+  /// `gapInSecond` is Integer. The default value is 0 . Use this to create a gap between displaying interstitial ads at every subsequent time.
   ///
   /// ```
   ///  DisplayAds.instance.loadInterstitialAds();
   /// ```
   ///
-  void loadInterstitialAds({VoidCallback? beforeStart}) {
+  void loadInterstitialAds({VoidCallback? beforeStart, int gapInSecond = 0}) {
     if (_isShowAds) {
       Future.delayed(const Duration(milliseconds: 500), () {
-        _googleAdsService?.loadInterstitialAds(beforeStart: beforeStart);
+        _googleAdsService?.loadInterstitialAds(
+            beforeStart: beforeStart, gapInSecond: gapInSecond);
       });
     }
   }

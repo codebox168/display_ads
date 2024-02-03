@@ -13,3 +13,7 @@
 ## 0.0.5
 
 * TODO: Provide code documentation
+
+## 1.0.0
+
+* TODO: Release stable version 1.0.0

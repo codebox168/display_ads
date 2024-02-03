@@ -12,7 +12,248 @@ The Display Ads package is a wrapper for the Google Mobile Ads Flutter plugin, w
 
 ## Getting started
 
-Set up on iOS and Android by following this [Platform specific setup](https://developers.google.com/admob/flutter/quick-start#platform_specific_setup)
+Platform specific setup:
+
+<details>
+<summary>Android</summary>
+
+##### Make sure that your app's build file uses the following values:
+
+* Minimum SDK version of 19 or higher
+* Compile SDK version of 33 or higher
+
+##### Update AndroidManifest.xml
+
+The AdMob app ID must be included in the AndroidManifest.xml. Failure to do so results in a crash on app launch.
+
+Add the AdMob app ID, as identified in the AdMob web interface, to the app's `android/app/src/main/AndroidManifest.xml` file by adding a <meta-data> tag with the name `com.google.android.gms.ads.APPLICATION_ID`. For android:value, insert your own AdMob app ID in quotes as shown:
+
+```xml
+<manifest>
+    <application>
+        <!-- Sample AdMob app ID for testing : ca-app-pub-3940256099942544~3347511713 -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-xxxxxxxxxxxxxxxx~yyyyyyyyyy"/>
+    <application>
+<manifest>
+```
+
+</details>
+
+<details>
+<summary>iOS</summary>
+
+##### Update Info.plist
+
+In your app's `ios/Runner/Info.plist` file, add a `GADApplicationIdentifier` key with a string value of your AdMob app ID, as identified in the AdMob web interface:
+
+```xml
+ <!-- Sample AdMob app ID for testing : ca-app-pub-3940256099942544~1458002511 -->
+<key>GADApplicationIdentifier</key>
+<string>ca-app-pub-################~##########</string>
+<key>SKAdNetworkItems</key>
+<array>
+  <dict>
+    <key>SKAdNetworkIdentifier</key>
+    <string>cstr6suwn9.skadnetwork</string>
+  </dict>
+  <dict>
+    <key>SKAdNetworkIdentifier</key>
+    <string>4fzdc2evr5.skadnetwork</string>
+  </dict>
+  <dict>
+    <key>SKAdNetworkIdentifier</key>
+    <string>4pfyvq9l8r.skadnetwork</string>
+  </dict>
+  <dict>
+    <key>SKAdNetworkIdentifier</key>
+    <string>2fnua5tdw4.skadnetwork</string>
+  </dict>
+  <dict>
+    <key>SKAdNetworkIdentifier</key>
+    <string>ydx93a7ass.skadnetwork</string>
+  </dict>
+  <dict>
+    <key>SKAdNetworkIdentifier</key>
+    <string>5a6flpkh64.skadnetwork</string>
+  </dict>
+  <dict>
+    <key>SKAdNetworkIdentifier</key>
+    <string>p78axxw29g.skadnetwork</string>
+  </dict>
+  <dict>
+    <key>SKAdNetworkIdentifier</key>
+    <string>v72qych5uu.skadnetwork</string>
+  </dict>
+  <dict>
+    <key>SKAdNetworkIdentifier</key>
+    <string>ludvb6z3bs.skadnetwork</string>
+  </dict>
+  <dict>
+    <key>SKAdNetworkIdentifier</key>
+    <string>cp8zw746q7.skadnetwork</string>
+  </dict>
+  <dict>
+    <key>SKAdNetworkIdentifier</key>
+    <string>3sh42y64q3.skadnetwork</string>
+  </dict>
+  <dict>
+    <key>SKAdNetworkIdentifier</key>
+    <string>c6k4g5qg8m.skadnetwork</string>
+  </dict>
+  <dict>
+    <key>SKAdNetworkIdentifier</key>
+    <string>s39g8k73mm.skadnetwork</string>
+  </dict>
+  <dict>
+    <key>SKAdNetworkIdentifier</key>
+    <string>3qy4746246.skadnetwork</string>
+  </dict>
+  <dict>
+    <key>SKAdNetworkIdentifier</key>
+    <string>f38h382jlk.skadnetwork</string>
+  </dict>
+  <dict>
+    <key>SKAdNetworkIdentifier</key>
+    <string>hs6bdukanm.skadnetwork</string>
+  </dict>
+  <dict>
+    <key>SKAdNetworkIdentifier</key>
+    <string>v4nxqhlyqp.skadnetwork</string>
+  </dict>
+  <dict>
+    <key>SKAdNetworkIdentifier</key>
+    <string>wzmmz9fp6w.skadnetwork</string>
+  </dict>
+  <dict>
+    <key>SKAdNetworkIdentifier</key>
+    <string>yclnxrl5pm.skadnetwork</string>
+  </dict>
+  <dict>
+    <key>SKAdNetworkIdentifier</key>
+    <string>t38b2kh725.skadnetwork</string>
+  </dict>
+  <dict>
+    <key>SKAdNetworkIdentifier</key>
+    <string>7ug5zh24hu.skadnetwork</string>
+  </dict>
+  <dict>
+    <key>SKAdNetworkIdentifier</key>
+    <string>gta9lk7p23.skadnetwork</string>
+  </dict>
+  <dict>
+    <key>SKAdNetworkIdentifier</key>
+    <string>vutu7akeur.skadnetwork</string>
+  </dict>
+  <dict>
+    <key>SKAdNetworkIdentifier</key>
+    <string>y5ghdn5j9k.skadnetwork</string>
+  </dict>
+  <dict>
+    <key>SKAdNetworkIdentifier</key>
+    <string>n6fk4nfna4.skadnetwork</string>
+  </dict>
+  <dict>
+    <key>SKAdNetworkIdentifier</key>
+    <string>v9wttpbfk9.skadnetwork</string>
+  </dict>
+  <dict>
+    <key>SKAdNetworkIdentifier</key>
+    <string>n38lu8286q.skadnetwork</string>
+  </dict>
+  <dict>
+    <key>SKAdNetworkIdentifier</key>
+    <string>47vhws6wlr.skadnetwork</string>
+  </dict>
+  <dict>
+    <key>SKAdNetworkIdentifier</key>
+    <string>kbd757ywx3.skadnetwork</string>
+  </dict>
+  <dict>
+    <key>SKAdNetworkIdentifier</key>
+    <string>9t245vhmpl.skadnetwork</string>
+  </dict>
+  <dict>
+    <key>SKAdNetworkIdentifier</key>
+    <string>eh6m2bh4zr.skadnetwork</string>
+  </dict>
+  <dict>
+    <key>SKAdNetworkIdentifier</key>
+    <string>a2p9lx4jpn.skadnetwork</string>
+  </dict>
+  <dict>
+    <key>SKAdNetworkIdentifier</key>
+    <string>22mmun2rn5.skadnetwork</string>
+  </dict>
+  <dict>
+    <key>SKAdNetworkIdentifier</key>
+    <string>4468km3ulz.skadnetwork</string>
+  </dict>
+  <dict>
+    <key>SKAdNetworkIdentifier</key>
+    <string>2u9pt9hc89.skadnetwork</string>
+  </dict>
+  <dict>
+    <key>SKAdNetworkIdentifier</key>
+    <string>8s468mfl3y.skadnetwork</string>
+  </dict>
+  <dict>
+    <key>SKAdNetworkIdentifier</key>
+    <string>klf5c3l5u5.skadnetwork</string>
+  </dict>
+  <dict>
+    <key>SKAdNetworkIdentifier</key>
+    <string>ppxm28t8ap.skadnetwork</string>
+  </dict>
+  <dict>
+    <key>SKAdNetworkIdentifier</key>
+    <string>ecpz2srf59.skadnetwork</string>
+  </dict>
+  <dict>
+    <key>SKAdNetworkIdentifier</key>
+    <string>uw77j35x4d.skadnetwork</string>
+  </dict>
+  <dict>
+    <key>SKAdNetworkIdentifier</key>
+    <string>pwa73g5rt2.skadnetwork</string>
+  </dict>
+  <dict>
+    <key>SKAdNetworkIdentifier</key>
+    <string>mlmmfzh3r3.skadnetwork</string>
+  </dict>
+  <dict>
+    <key>SKAdNetworkIdentifier</key>
+    <string>578prtvx9j.skadnetwork</string>
+  </dict>
+  <dict>
+    <key>SKAdNetworkIdentifier</key>
+    <string>4dzt52r2t5.skadnetwork</string>
+  </dict>
+  <dict>
+    <key>SKAdNetworkIdentifier</key>
+    <string>e5fvkxwrpn.skadnetwork</string>
+  </dict>
+  <dict>
+    <key>SKAdNetworkIdentifier</key>
+    <string>8c4e2ghe7u.skadnetwork</string>
+  </dict>
+  <dict>
+    <key>SKAdNetworkIdentifier</key>
+    <string>zq492l623r.skadnetwork</string>
+  </dict>
+  <dict>
+    <key>SKAdNetworkIdentifier</key>
+    <string>3rd42ekr43.skadnetwork</string>
+  </dict>
+  <dict>
+    <key>SKAdNetworkIdentifier</key>
+    <string>3qcr597p9d.skadnetwork</string>
+  </dict>
+</array>
+```
+
+</details>
 
 ## Usage
 
@@ -38,7 +279,7 @@ void main() async {
 The method below returns a widget, so you can use it in a Flutter widget.
 
 ```dart
-DisplayAds.instance.bannerAd()
+DisplayAds.instance.bannerAd();
 ```
 
 #### Display interstitial ads 
@@ -46,9 +287,11 @@ DisplayAds.instance.bannerAd()
 The method below will open interstitial ads, so you can call it whenever you want to display interstitial ads.
 
 ```dart
-DisplayAds.instance.loadInterstitialAds()
+DisplayAds.instance.loadInterstitialAds();
 ```
 
 ## Additional information
 
-This package use [google_mobile_ads](https://pub.dev/packages/google_mobile_ads) as dependency.
+If you like this this package please like and give star on [Github](https://github.com/codebox168/display_ads)\
+If you have issue with this package please create issue on [Github](https://github.com/codebox168/display_ads)\
+Contact [Author](https://www.facebook.com/kememsothea)

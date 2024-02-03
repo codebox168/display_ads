@@ -71,9 +71,9 @@ class GoogleAdsService {
     );
   }
 
-  loadInterstitialAds({VoidCallback? beforeStart}) {
+  loadInterstitialAds({VoidCallback? beforeStart, int gapInSecond = 0}) {
     if (DateTime.now().millisecondsSinceEpoch - _lastShowInterstitialAds >
-        500000) {
+        (gapInSecond * 1000)) {
       if (beforeStart != null) {
         beforeStart();
       }
