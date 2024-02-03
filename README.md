@@ -1,39 +1,51 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# Easy way to display google ads
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+The Display Ads package is a wrapper for the Google Mobile Ads Flutter plugin, which helps developers display Google Mobile Ads in the easiest way.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+* Display banner ads
+* Display interstitial ads
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+Set up on iOS and Android by following this [Platform specific setup](https://developers.google.com/admob/flutter/quick-start#platform_specific_setup)
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+#### Initialize plugin
 
 ```dart
-const like = 'sample';
+import 'package:display_ads/display_ads.dart';
+
+void main() async {
+    WidgetsFlutterBinding.ensureInitialized();
+    DisplayAds.instance.initialize(
+        isShowAds: true,
+        interstitialAdUnitIdIOS: "Put your interstitial AdUnitId for iOS here",
+        bannerAdUnitIdAndroid:"Put your interstitial AdUnitId for Android here",
+        bannerAdUnitIdIOS: "Put your banner AdUnitId for iOS here",
+        bannerAdUnitIdAndroid:"Put your banner AdUnitId for Android here",
+    );
+}
+```
+
+#### Display banner ads 
+
+The method below returns a widget, so you can use it in a Flutter widget.
+
+```dart
+DisplayAds.instance.bannerAd()
+```
+
+#### Display interstitial ads 
+
+The method below will open interstitial ads, so you can call it whenever you want to display interstitial ads.
+
+```dart
+DisplayAds.instance.loadInterstitialAds()
 ```
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+This package uses [google_mobile_ads](https://pub.dev/packages/google_mobile_ads), [flutter_riverpod](https://pub.dev/packages/flutter_riverpod), and [equatable](https://pub.dev/packages/equatable) as dependencies.
