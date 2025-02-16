@@ -1,7 +1,7 @@
 /// Flutter packages that make it easy to implement google_mobile_ads.
 ///
 /// Get started at [display_ads](https://pub.dev/packages/display_ads) 🚀
-library display_ads;
+library;
 
 import 'package:display_ads/src/services/google_ads_service.dart';
 import 'package:flutter/material.dart';
