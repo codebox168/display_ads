@@ -1,14 +1,15 @@
 ![Pub Points](https://img.shields.io/pub/points/display_ads) ![Static Badge](https://img.shields.io/badge/Dart_Analyze-Pass-blue) ![Static Badge](https://img.shields.io/badge/License-MIT-purple?link=https%3A%2F%2Fgithub.com%2Fcodebox168%2Fdisplay_ads%2Fblob%2Fmain%2FLICENSE)
 
-
 # Easy way to display google ads
 
 The Display Ads package is a wrapper for the Google Mobile Ads Flutter plugin, which helps developers display Google Mobile Ads in the easiest way.
 
 ## Features
 
-* Display banner ads
-* Display interstitial ads
+- Display banner ads
+- Display interstitial ads
+- Display App Open ads
+- Display Rewarded ads
 
 ## Getting started
 
@@ -19,8 +20,8 @@ Platform specific setup:
 
 ##### Make sure that your app's build file uses the following values:
 
-* Minimum SDK version of 19 or higher
-* Compile SDK version of 33 or higher
+- Minimum SDK version of 19 or higher
+- Compile SDK version of 33 or higher
 
 ##### Update AndroidManifest.xml
 
@@ -270,11 +271,15 @@ void main() async {
         interstitialAdUnitIdAndroid:"Put your interstitial AdUnitId for Android here",
         bannerAdUnitIdIOS: "Put your banner AdUnitId for iOS here",
         bannerAdUnitIdAndroid:"Put your banner AdUnitId for Android here",
+        appOpenAdsUnitIdAndroid: 'Put your appOpen AdUnitId for Android here',
+        appOpenAdsUnitIdIOS: 'Put your appOpen AdUnitId for Android here',
+        rewardedAdUnitIdAndroid: 'Put your rewarded AdUnitId for Android here',
+        rewardedAdUnitIdIOS: 'Put your rewarded AdUnitId for Android here',
     );
 }
 ```
 
-#### Display banner ads 
+#### Display banner ads
 
 The method below returns a widget, so you can use it in a Flutter widget.
 
@@ -282,12 +287,28 @@ The method below returns a widget, so you can use it in a Flutter widget.
 DisplayAds.instance.bannerAd();
 ```
 
-#### Display interstitial ads 
+#### Display interstitial ads
 
 The method below will open interstitial ads, so you can call it whenever you want to display interstitial ads.
 
 ```dart
 DisplayAds.instance.loadInterstitialAds();
+```
+
+#### Display App open ads
+
+The method below will open App open ads, so you can call it whenever you want to display App open ads.
+
+```dart
+DisplayAds.instance.loadAppOpenAds();
+```
+
+#### Display Rewarded ads
+
+The method below will open Rewarded ads, so you can call it whenever you want to display Rewarded ads.
+
+```dart
+DisplayAds.instance.loadRewardedAds();
 ```
 
 ## Additional information
