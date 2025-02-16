@@ -7,6 +7,7 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 class GoogleAdsService {
   int _lastShowInterstitialAds = 0;
   int _lastShowAppOpenAds = 0;
+  int _lastShowRewardedAds = 0;
   late final AdRequest _requestGoogleAds;
   GoogleAdsService({
     required String interstitialAdUnitIdAndroid,
@@ -15,6 +16,8 @@ class GoogleAdsService {
     required String bannerAdUnitIdIOS,
     required String appOpenAdsUnitIdAndroid,
     required String appOpenAdsUnitIdIOS,
+    required String rewardedAdUnitIdAndroid,
+    required String rewardedAdUnitIdIOS,
     required List<String> requestGoogleAdsKeywords,
   }) {
     MobileAds.instance.initialize();
@@ -29,10 +32,14 @@ class GoogleAdsService {
     _interstitialAdUnitId = Platform.isAndroid
         ? interstitialAdUnitIdAndroid
         : interstitialAdUnitIdIOS;
+    _rewardedAdUnitId =
+        Platform.isAndroid ? rewardedAdUnitIdAndroid : rewardedAdUnitIdIOS;
+
     _bannerAdUnitIdAdUnitId =
         Platform.isAndroid ? bannerAdUnitIdAndroid : bannerAdUnitIdIOS;
     _loadAppOpenAd();
     _loadInterstitialAd();
+    _loadRewardedAd();
     _loadBannerAd();
   }
 
@@ -142,6 +149,64 @@ class GoogleAdsService {
       }
       _interstitialAd?.show();
       _lastShowInterstitialAds = DateTime.now().millisecondsSinceEpoch;
+    }
+  }
+
+  //============================
+  // Rewarded ads
+  //============================
+
+  RewardedAd? _rewardedAd;
+  late final String _rewardedAdUnitId;
+
+  /// Loads an rewarded ads.
+  void _loadRewardedAd() {
+    RewardedAd.load(
+      adUnitId: _rewardedAdUnitId,
+      request: _requestGoogleAds,
+      rewardedAdLoadCallback: RewardedAdLoadCallback(
+        // Called when an ad is successfully received.
+        onAdLoaded: (ad) {
+          debugPrint('$ad loaded.');
+          ad.fullScreenContentCallback = FullScreenContentCallback(
+            // Called when the ad showed the full screen content.
+            onAdShowedFullScreenContent: (ad) {},
+            // Called when an impression occurs on the ad.
+            onAdImpression: (ad) {},
+            // Called when the ad failed to show full screen content.
+            onAdFailedToShowFullScreenContent: (ad, err) {
+              // Dispose the ad here to free resources.
+              ad.dispose();
+            },
+            // Called when the ad dismissed full screen content.
+            onAdDismissedFullScreenContent: (ad) {
+              // Dispose the ad here to free resources.
+              ad.dispose();
+              _loadRewardedAd();
+            },
+            // Called when a click is recorded for an ad.
+            onAdClicked: (ad) {},
+          );
+          // Keep a reference to the ad so you can show it later.
+          _rewardedAd = ad;
+        },
+        // Called when an ad request failed.
+        onAdFailedToLoad: (LoadAdError error) {
+          debugPrint('RewardedAd failed to load: $error');
+        },
+      ),
+    );
+  }
+
+  loadRewardedAds({VoidCallback? beforeStart, int gapInSecond = 0}) {
+    if (DateTime.now().millisecondsSinceEpoch - _lastShowRewardedAds >
+        (gapInSecond * 1000)) {
+      if (beforeStart != null) {
+        beforeStart();
+      }
+      _rewardedAd?.show(
+          onUserEarnedReward: (AdWithoutView ad, RewardItem reward) {});
+      _lastShowRewardedAds = DateTime.now().millisecondsSinceEpoch;
     }
   }
 

@@ -11,6 +11,8 @@ void main() async {
     bannerAdUnitIdAndroid: 'ca-app-pub-3940256099942544/6300978111',
     appOpenAdsUnitIdIOS: 'ca-app-pub-3940256099942544/5575463023',
     appOpenAdsUnitIdAndroid: 'ca-app-pub-3940256099942544/9257395921',
+    rewardedAdUnitIdAndroid: 'ca-app-pub-3940256099942544/5224354917',
+    rewardedAdUnitIdIOS: 'ca-app-pub-3940256099942544/1712485313',
   );
   runApp(const MyApp());
 }
@@ -29,6 +31,10 @@ class _MyAppState extends State<MyApp> {
 
   void _showAppOpenAds() {
     DisplayAds.instance.loadAppOpenAds();
+  }
+
+  void _showRewardedAds() {
+    DisplayAds.instance.loadRewardedAds();
   }
 
   @override
@@ -56,6 +62,10 @@ class _MyAppState extends State<MyApp> {
               ElevatedButton(
                 onPressed: _showAppOpenAds,
                 child: const Text('Show App Open Ads'),
+              ),
+              ElevatedButton(
+                onPressed: _showRewardedAds,
+                child: const Text('Show Rewarded Ads'),
               ),
             ],
           ),

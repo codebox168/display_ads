@@ -37,6 +37,8 @@ class DisplayAds {
   /// `appOpenAdUnitIdIOS` appOpen AdUnit Id for iOS defult test AdUnitId.\
   /// `interstitialAdUnitIdAndroid` interstitial AdUnit Id for Android defult test AdUnitId.\
   /// `interstitialAdUnitIdIOS` interstitial AdUnit Id for iOS defult test AdUnitId.\
+  /// `RewardedAdUnitIdAndroid` Rewarded AdUnit Id for Android defult test AdUnitId.\
+  /// `RewardedAdUnitIdIOS` Rewarded AdUnit Id for iOS defult test AdUnitId.\
   /// `bannerAdUnitIdAndroid` banner AdUnit Id for Android defult test AdUnitId.\
   /// `bannerAdUnitIdIOS`banner AdUnit Id for iOS defult test AdUnitId.
   ///
@@ -55,6 +57,8 @@ class DisplayAds {
     String interstitialAdUnitIdAndroid =
         'ca-app-pub-3940256099942544/1033173712',
     String interstitialAdUnitIdIOS = 'ca-app-pub-3940256099942544/4411468910',
+    String rewardedAdUnitIdAndroid = 'ca-app-pub-3940256099942544/5224354917',
+    String rewardedAdUnitIdIOS = 'ca-app-pub-3940256099942544/1712485313',
     String bannerAdUnitIdAndroid = 'ca-app-pub-3940256099942544/6300978111',
     String bannerAdUnitIdIOS = 'ca-app-pub-3940256099942544/2934735716',
     List<String> requestGoogleAdsKeywords = const [],
@@ -66,6 +70,8 @@ class DisplayAds {
       appOpenAdsUnitIdIOS: appOpenAdsUnitIdIOS,
       interstitialAdUnitIdAndroid: interstitialAdUnitIdAndroid,
       interstitialAdUnitIdIOS: interstitialAdUnitIdIOS,
+      rewardedAdUnitIdAndroid: rewardedAdUnitIdAndroid,
+      rewardedAdUnitIdIOS: rewardedAdUnitIdIOS,
       bannerAdUnitIdAndroid: bannerAdUnitIdAndroid,
       bannerAdUnitIdIOS: bannerAdUnitIdIOS,
     );
@@ -106,6 +112,26 @@ class DisplayAds {
     if (_isShowAds) {
       Future.delayed(const Duration(milliseconds: 500), () {
         _googleAdsService?.loadInterstitialAds(
+            beforeStart: beforeStart, gapInSecond: gapInSecond);
+      });
+    }
+  }
+
+  /// [loadRewardedAds]
+  ///
+  /// Call this method when ever you want to display Rewarded Ads to this user;\
+  ///
+  /// `beforeStart` is VoidCallback. This function well execute before display Rewarded Ads\
+  /// `gapInSecond` is Integer. The default value is 0 . Use this to create a gap between displaying Rewarded ads at every subsequent time.
+  ///
+  /// ```
+  ///  DisplayAds.instance.loadRewardedAds();
+  /// ```
+  ///
+  void loadRewardedAds({VoidCallback? beforeStart, int gapInSecond = 0}) {
+    if (_isShowAds) {
+      Future.delayed(const Duration(milliseconds: 100), () {
+        _googleAdsService?.loadRewardedAds(
             beforeStart: beforeStart, gapInSecond: gapInSecond);
       });
     }
