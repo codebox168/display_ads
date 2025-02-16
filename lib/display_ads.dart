@@ -64,17 +64,19 @@ class DisplayAds {
     List<String> requestGoogleAdsKeywords = const [],
   }) async {
     _isShowAds = isShowAds;
-    _googleAdsService = GoogleAdsService(
-      requestGoogleAdsKeywords: requestGoogleAdsKeywords,
-      appOpenAdsUnitIdAndroid: appOpenAdsUnitIdAndroid,
-      appOpenAdsUnitIdIOS: appOpenAdsUnitIdIOS,
-      interstitialAdUnitIdAndroid: interstitialAdUnitIdAndroid,
-      interstitialAdUnitIdIOS: interstitialAdUnitIdIOS,
-      rewardedAdUnitIdAndroid: rewardedAdUnitIdAndroid,
-      rewardedAdUnitIdIOS: rewardedAdUnitIdIOS,
-      bannerAdUnitIdAndroid: bannerAdUnitIdAndroid,
-      bannerAdUnitIdIOS: bannerAdUnitIdIOS,
-    );
+    if (isShowAds) {
+      _googleAdsService = GoogleAdsService(
+        requestGoogleAdsKeywords: requestGoogleAdsKeywords,
+        appOpenAdsUnitIdAndroid: appOpenAdsUnitIdAndroid,
+        appOpenAdsUnitIdIOS: appOpenAdsUnitIdIOS,
+        interstitialAdUnitIdAndroid: interstitialAdUnitIdAndroid,
+        interstitialAdUnitIdIOS: interstitialAdUnitIdIOS,
+        rewardedAdUnitIdAndroid: rewardedAdUnitIdAndroid,
+        rewardedAdUnitIdIOS: rewardedAdUnitIdIOS,
+        bannerAdUnitIdAndroid: bannerAdUnitIdAndroid,
+        bannerAdUnitIdIOS: bannerAdUnitIdIOS,
+      );
+    }
   }
 
   /// [loadAppOpenAds]
