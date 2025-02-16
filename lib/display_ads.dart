@@ -33,6 +33,8 @@ class DisplayAds {
   /// This method have many optional params:
   ///
   /// `isShowAds` is we want to show the ads or not defult true.\
+  /// `appOpenAdUnitIdAndroid` appOpen AdUnit Id for Android defult test AdUnitId.\
+  /// `appOpenAdUnitIdIOS` appOpen AdUnit Id for iOS defult test AdUnitId.\
   /// `interstitialAdUnitIdAndroid` interstitial AdUnit Id for Android defult test AdUnitId.\
   /// `interstitialAdUnitIdIOS` interstitial AdUnit Id for iOS defult test AdUnitId.\
   /// `bannerAdUnitIdAndroid` banner AdUnit Id for Android defult test AdUnitId.\
@@ -48,6 +50,8 @@ class DisplayAds {
   ///
   Future<void> initialize({
     bool isShowAds = true,
+    String appOpenAdsUnitIdAndroid = 'ca-app-pub-3940256099942544/9257395921',
+    String appOpenAdsUnitIdIOS = 'ca-app-pub-3940256099942544/5575463023',
     String interstitialAdUnitIdAndroid =
         'ca-app-pub-3940256099942544/1033173712',
     String interstitialAdUnitIdIOS = 'ca-app-pub-3940256099942544/4411468910',
@@ -58,11 +62,33 @@ class DisplayAds {
     _isShowAds = isShowAds;
     _googleAdsService = GoogleAdsService(
       requestGoogleAdsKeywords: requestGoogleAdsKeywords,
+      appOpenAdsUnitIdAndroid: appOpenAdsUnitIdAndroid,
+      appOpenAdsUnitIdIOS: appOpenAdsUnitIdIOS,
       interstitialAdUnitIdAndroid: interstitialAdUnitIdAndroid,
       interstitialAdUnitIdIOS: interstitialAdUnitIdIOS,
       bannerAdUnitIdAndroid: bannerAdUnitIdAndroid,
       bannerAdUnitIdIOS: bannerAdUnitIdIOS,
     );
+  }
+
+  /// [loadAppOpenAds]
+  ///
+  /// Call this method when ever you want to display App Open Ads to this user;\
+  ///
+  /// `beforeStart` is VoidCallback. This function well execute before display App Open Ads\
+  /// `gapInSecond` is Integer. The default value is 0 . Use this to create a gap between displaying App Open ads at every subsequent time.
+  ///
+  /// ```
+  ///  DisplayAds.instance.loadAppOpenAds();
+  /// ```
+  ///
+  void loadAppOpenAds({VoidCallback? beforeStart, int gapInSecond = 0}) {
+    if (_isShowAds) {
+      Future.delayed(const Duration(milliseconds: 200), () {
+        _googleAdsService?.loadAppOpenAds(
+            beforeStart: beforeStart, gapInSecond: gapInSecond);
+      });
+    }
   }
 
   /// [loadInterstitialAds]

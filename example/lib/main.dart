@@ -9,6 +9,8 @@ void main() async {
     interstitialAdUnitIdAndroid: 'ca-app-pub-3940256099942544/1033173712',
     bannerAdUnitIdIOS: 'ca-app-pub-3940256099942544/2934735716',
     bannerAdUnitIdAndroid: 'ca-app-pub-3940256099942544/6300978111',
+    appOpenAdsUnitIdIOS: 'ca-app-pub-3940256099942544/5575463023',
+    appOpenAdsUnitIdAndroid: 'ca-app-pub-3940256099942544/9257395921',
   );
   runApp(const MyApp());
 }
@@ -23,6 +25,10 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   void _showInterstitialAds() {
     DisplayAds.instance.loadInterstitialAds();
+  }
+
+  void _showAppOpenAds() {
+    DisplayAds.instance.loadAppOpenAds();
   }
 
   @override
@@ -46,6 +52,10 @@ class _MyAppState extends State<MyApp> {
               ElevatedButton(
                 onPressed: _showInterstitialAds,
                 child: const Text('Show Interstitial Ads'),
+              ),
+              ElevatedButton(
+                onPressed: _showAppOpenAds,
+                child: const Text('Show App Open Ads'),
               ),
             ],
           ),
