@@ -198,14 +198,23 @@ class GoogleAdsService {
     );
   }
 
-  loadRewardedAds({VoidCallback? beforeStart, int gapInSecond = 0}) {
+  loadRewardedAds({
+    VoidCallback? beforeStart,
+    int gapInSecond = 0,
+    VoidCallback? onUserEarnedReward,
+  }) {
     if (DateTime.now().millisecondsSinceEpoch - _lastShowRewardedAds >
         (gapInSecond * 1000)) {
       if (beforeStart != null) {
         beforeStart();
       }
       _rewardedAd?.show(
-          onUserEarnedReward: (AdWithoutView ad, RewardItem reward) {});
+        onUserEarnedReward: (AdWithoutView ad, RewardItem reward) {
+          if (onUserEarnedReward != null) {
+            onUserEarnedReward();
+          }
+        },
+      );
       _lastShowRewardedAds = DateTime.now().millisecondsSinceEpoch;
     }
   }
@@ -222,7 +231,7 @@ class GoogleAdsService {
     _bannerAd = BannerAd(
       adUnitId: _bannerAdUnitIdAdUnitId,
       request: _requestGoogleAds,
-      size: AdSize.banner,
+      size: AdSize.fullBanner,
       listener: BannerAdListener(
         // Called when an ad is successfully received.
         onAdLoaded: (ad) {

@@ -6,8 +6,8 @@ The Display Ads package is a wrapper for the Google Mobile Ads Flutter plugin, w
 
 ## Features
 
-- Display banner ads
-- Display interstitial ads
+- Display Banner ads
+- Display Interstitial ads
 - Display App Open ads
 - Display Rewarded ads
 
@@ -279,33 +279,49 @@ void main() async {
 }
 ```
 
-#### Display banner ads
+### Display Banner Ads
 
-The method below returns a widget, so you can use it in a Flutter widget.
+The method below returns a widget, so you can use it in a Flutter widget tree to display banner ads.
 
 ```dart
 DisplayAds.instance.bannerAd();
 ```
 
-#### Display interstitial ads
+### Display Interstitial Ads
 
-The method below will open interstitial ads, so you can call it whenever you want to display interstitial ads.
+The method below will open interstitial ads. Call it whenever you want to display interstitial ads.
+
+**Parameters:**
+
+- `beforeStart`: `VoidCallback?` (optional) - A callback function that executes before displaying the interstitial ads.
+- `gapInSecond`: `int` (optional, default: 0) - Specifies the time gap (in seconds) between displaying interstitial ads.
 
 ```dart
 DisplayAds.instance.loadInterstitialAds();
 ```
 
-#### Display App open ads
+### Display App Open Ads
 
-The method below will open App open ads, so you can call it whenever you want to display App open ads.
+The method below will open app open ads. Call it whenever you want to display app open ads.
+
+**Parameters:**
+
+- `beforeStart`: `VoidCallback?` (optional) - A callback function that executes before displaying the app open ads.
+- `gapInSecond`: `int` (optional, default: 0) - Specifies the time gap (in seconds) between displaying app open ads.
 
 ```dart
 DisplayAds.instance.loadAppOpenAds();
 ```
 
-#### Display Rewarded ads
+### Display Rewarded Ads
 
-The method below will open Rewarded ads, so you can call it whenever you want to display Rewarded ads.
+The method below will open rewarded ads. Call it whenever you want to display rewarded ads.
+
+**Parameters:**
+
+- `beforeStart`: `VoidCallback?` (optional) - A callback function that executes before displaying the rewarded ads.
+- `gapInSecond`: `int` (optional, default: 0) - Specifies the time gap (in seconds) between displaying rewarded ads.
+- `onUserEarnedReward`: `VoidCallback?` (optional) - A callback function that executes when the user finishes watching a full ad and earns a reward.
 
 ```dart
 DisplayAds.instance.loadRewardedAds();

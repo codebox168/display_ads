@@ -125,16 +125,24 @@ class DisplayAds {
   ///
   /// `beforeStart` is VoidCallback. This function well execute before display Rewarded Ads\
   /// `gapInSecond` is Integer. The default value is 0 . Use this to create a gap between displaying Rewarded ads at every subsequent time.
+  /// `onUserEarnedReward` is a VoidCallback. This function will execute when the user finishes watching a full Ads.\
   ///
   /// ```
   ///  DisplayAds.instance.loadRewardedAds();
   /// ```
   ///
-  void loadRewardedAds({VoidCallback? beforeStart, int gapInSecond = 0}) {
+  void loadRewardedAds({
+    VoidCallback? beforeStart,
+    int gapInSecond = 0,
+    VoidCallback? onUserEarnedReward,
+  }) {
     if (_isShowAds) {
       Future.delayed(const Duration(milliseconds: 100), () {
         _googleAdsService?.loadRewardedAds(
-            beforeStart: beforeStart, gapInSecond: gapInSecond);
+          beforeStart: beforeStart,
+          gapInSecond: gapInSecond,
+          onUserEarnedReward: onUserEarnedReward,
+        );
       });
     }
   }
